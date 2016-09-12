@@ -1,0 +1,38 @@
+{
+  "name": "Exchange Posts",
+  "version": "1.1.0.0",
+  "manifest_version": 2,
+  "description": "Exchange Posts",
+  "icons": {
+    "16"  : "icons/icon_16.png",
+    "19"  : "icons/icon_19.png",
+    "128" : "icons/icon_128.png"
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ]
+  },
+  "permissions": [
+        "storage",
+        "unlimitedStorage",
+        "tabs",
+        "windows",
+        "http://*/*",
+        "https://*/*"
+    ],
+	"content_scripts": [ {
+	    "exclude_globs": [  ],
+	    "include_globs": [ "*" ],
+	    "js": [ "/js/popup.js" ],
+	    "matches": [ "http://*/*", "https://*/*" ],
+	    "run_at": "document_start",
+	    "all_frames": false
+	} ],
+  "browser_action": {
+    "default_icon": "icons/icon_16.png",
+    "default_title": "Exchange Posts",
+    "default_popup": "pages/popup.html"
+  },
+  "minimum_chrome_version": "22"
+}
